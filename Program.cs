@@ -29,8 +29,8 @@ foreach (var line in lines)
         for (int j = 0; j < length; j++)
         {
             int pixelIndex = start + j - 1;
-            int y = pixelIndex / image.Width;
-            int x = pixelIndex % image.Width;
+            int y = pixelIndex % image.Width;
+            int x = pixelIndex / image.Width;
 
             if (x < image.Width && y < image.Height)
             {
