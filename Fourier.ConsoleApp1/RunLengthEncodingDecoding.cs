@@ -5,6 +5,7 @@ namespace Fourier.ConsoleApp1;
 
 public sealed class RunLengthEncodingDecoding
 {
+
     /// <summary>
     /// Converts a run length encoded value to x and y coordinates and sets the of value <paramref name="pixelMarker"/>.
     /// </summary>

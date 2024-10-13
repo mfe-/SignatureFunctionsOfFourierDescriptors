@@ -5,7 +5,12 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fourier.ConsoleApp1", "Fourier.ConsoleApp1\Fourier.ConsoleApp1.csproj", "{7E82766F-5B69-4F6A-A8C0-DA9A6282EBA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaggle.BenchmarkRunner", "Kaggle.BenchmarkRunner\Kaggle.BenchmarkRunner.csproj", "{5D9438D1-E185-4EA0-A6E0-539527210E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaggle.BenchmarkRunner", "Kaggle.BenchmarkRunner\Kaggle.BenchmarkRunner.csproj", "{5D9438D1-E185-4EA0-A6E0-539527210E40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{100C261D-338F-4FF2-8B0B-6BF53905F23C}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BenchmarkDotNet.Artifacts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Fourier.ConsoleApp1\Fourier.ConsoleApp1.csproj" />
   </ItemGroup>
 
