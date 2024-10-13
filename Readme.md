@@ -8,3 +8,8 @@
   - stage1_test.zip
 2. into the git repo
 
+## todos
+
+1. Fix RunLengthEncoding for images which ar not 256x256
+2. Compute Fourier Descriptors from RunLengthEncoding
+3. compute from images the Fourier Descriptors
