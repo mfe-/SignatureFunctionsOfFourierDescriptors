@@ -1,5 +1,6 @@
 ﻿using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
+using System.Numerics;
 
 namespace Fourier.ConsoleApp1;
 
@@ -29,9 +30,12 @@ public sealed class RunLengthEncodingDecoding
     /// <param name="lines">Line which contains the encoded run-length in the csv format: <code>ImageId,EncodedPixels,Height,Width,Usage</code></param>
     /// <param name="image">The image to mark.</param>
     /// <param name="pixelMarker">The pixel marker value.</param>
-    public void MarkImageUsingRunLengthDecoding(IEnumerable<string> lines, Image<Rgba32> image)
+    public List<Point>[] GetRunLengthDecoding(IEnumerable<string> lines, Image<Rgba32> image)
     {
         var rand = new Random();
+        var maskedObjectPoints = new List<Point>[lines.Count()];
+        
+        int l = 0;
         foreach (var line in lines)
         {
             var parts = line.Split(',');
@@ -42,7 +46,7 @@ public sealed class RunLengthEncodingDecoding
             var b = (byte)rand.Next(0, 255);
             var pixelMarker = new Rgba32(r, g, b, 255);
 
-
+            List<Point> boundaryPoints = new();
             for (int i = 0; i < encodedPixels.Length; i += 2)
             {
                 int start = int.Parse(encodedPixels[i]);
@@ -59,9 +63,13 @@ public sealed class RunLengthEncodingDecoding
                     if (x < image.Width && y < image.Height)
                     {
                         image[x, y] = pixelMarker;
+                        boundaryPoints.Add(new Point(x, y));
                     }
                 }
             }
+            maskedObjectPoints[l] = boundaryPoints;
+            l++;
         }
+        return maskedObjectPoints;
     }
 }

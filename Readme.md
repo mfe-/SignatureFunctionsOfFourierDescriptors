@@ -10,6 +10,7 @@
 
 ## todos
 
-1. Fix RunLengthEncoding for images which ar not 256x256
-2. Compute Fourier Descriptors from RunLengthEncoding
-3. compute from images the Fourier Descriptors
+- [x] Fix RunLengthEncoding for images which ar not 256x256
+- [ ] Fix Boundary trace for certain masks
+- [ ] Compute Fourier Descriptors from RunLengthEncoding
+- compute from images the Fourier Descriptors
