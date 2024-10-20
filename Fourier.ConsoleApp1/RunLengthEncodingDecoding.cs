@@ -29,13 +29,20 @@ public sealed class RunLengthEncodingDecoding
     /// <param name="lines">Line which contains the encoded run-length in the csv format: <code>ImageId,EncodedPixels,Height,Width,Usage</code></param>
     /// <param name="image">The image to mark.</param>
     /// <param name="pixelMarker">The pixel marker value.</param>
-    public void MarkImageUsingRunLengthDecoding(IEnumerable<string> lines, Image<Rgba32> image, Rgba32 pixelMarker)
+    public void MarkImageUsingRunLengthDecoding(IEnumerable<string> lines, Image<Rgba32> image)
     {
+        var rand = new Random();
         foreach (var line in lines)
         {
             var parts = line.Split(',');
             var encodedPixels = parts[1].Split(' ');
-            
+
+            var r = (byte)rand.Next(0, 255);
+            var g = (byte)rand.Next(0, 255);
+            var b = (byte)rand.Next(0, 255);
+            var pixelMarker = new Rgba32(r, g, b, 255);
+
+
             for (int i = 0; i < encodedPixels.Length; i += 2)
             {
                 int start = int.Parse(encodedPixels[i]);
@@ -46,8 +53,8 @@ public sealed class RunLengthEncodingDecoding
                 for (int j = 0; j < length; j++)
                 {
                     int pixelIndex = start + j - 1;
-                    int y = pixelIndex % image.Width;
-                    int x = pixelIndex / image.Width;
+                    int y = pixelIndex % image.Height;
+                    int x = pixelIndex / image.Height;
 
                     if (x < image.Width && y < image.Height)
                     {
